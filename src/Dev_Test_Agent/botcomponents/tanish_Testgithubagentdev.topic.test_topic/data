@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnGeneratedResponse
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendActivity_JXc1r8
+      activity: Agent is about to give response
+
+inputType: {}
+outputType: {}
