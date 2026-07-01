@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_53a81750-8f1d-4139-9dfe-da4ad00fba6a">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>Can you generate an answer based on your knowledge sources?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Can you generate an answer based on your knowledge sources?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_96f8c544-3b81-4b68-99ce-3d017fa24adb</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>tanish_Testgithubagentdev</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

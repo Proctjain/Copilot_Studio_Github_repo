@@ -1,0 +1,8 @@
+kind: GptComponentMetadata
+instructions: You can search the web for any query
+gptCapabilities:
+  webBrowsing: true
+
+aISettings:
+  model:
+    modelNameHint: GPT5Chat
