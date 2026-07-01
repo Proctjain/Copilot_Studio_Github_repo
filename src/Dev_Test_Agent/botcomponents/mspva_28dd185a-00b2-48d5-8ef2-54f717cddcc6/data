@@ -1,7 +1,0 @@
-kind: EvaluationData
-rows:
-  - source: Manual
-    input: How can I get more detailed answers about a topic from your knowledge base?
-
-extensionData:
-  displayOrder: "1782913010159"

@@ -1,7 +1,0 @@
-kind: EvaluationData
-rows:
-  - source: Manual
-    input: Can you generate an answer based on your knowledge sources?
-
-extensionData:
-  displayOrder: "1782913010147"

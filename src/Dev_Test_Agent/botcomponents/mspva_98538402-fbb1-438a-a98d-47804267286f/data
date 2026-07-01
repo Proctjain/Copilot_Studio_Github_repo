@@ -1,7 +1,0 @@
-kind: EvaluationData
-rows:
-  - source: Manual
-    input: Can you provide more information on a specific topic?
-
-extensionData:
-  displayOrder: "1782913010150"
