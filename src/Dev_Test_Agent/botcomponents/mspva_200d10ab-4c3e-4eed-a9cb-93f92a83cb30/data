@@ -1,0 +1,7 @@
+kind: EvaluationData
+rows:
+  - source: Manual
+    input: Is it possible to restart our conversation from the beginning?
+
+extensionData:
+  displayOrder: "1782913010160"

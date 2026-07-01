@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_4dd623d0-d9d6-46f8-90c2-0c83ec3ec884">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>Can you help me find information from a specific GitHub repository?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Can you help me find information from a specific GitHub repository?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_96f8c544-3b81-4b68-99ce-3d017fa24adb</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>tanish_Testgithubagentdev</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
