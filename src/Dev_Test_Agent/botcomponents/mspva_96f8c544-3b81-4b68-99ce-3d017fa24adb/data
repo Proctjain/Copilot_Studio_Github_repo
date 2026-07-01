@@ -1,3 +1,0 @@
-kind: EvaluationSet
-graders:
-  - kind: GeneralQualityGrader

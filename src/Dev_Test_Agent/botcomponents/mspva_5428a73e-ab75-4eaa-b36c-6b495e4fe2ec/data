@@ -1,7 +1,0 @@
-kind: EvaluationData
-rows:
-  - source: Manual
-    input: What should I do if multiple topics match my question?
-
-extensionData:
-  displayOrder: "1782913010149"

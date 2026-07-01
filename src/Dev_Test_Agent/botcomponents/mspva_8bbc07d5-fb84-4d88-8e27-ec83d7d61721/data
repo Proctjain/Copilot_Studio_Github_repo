@@ -1,7 +1,0 @@
-kind: EvaluationData
-rows:
-  - source: Manual
-    input: Is there a way to boost the conversation with more detailed answers?
-
-extensionData:
-  displayOrder: "1782913010145"

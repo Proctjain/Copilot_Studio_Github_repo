@@ -1,7 +1,0 @@
-kind: EvaluationData
-rows:
-  - source: Manual
-    input: What steps do I need to follow to sign in and access my account?
-
-extensionData:
-  displayOrder: "1782913010156"
