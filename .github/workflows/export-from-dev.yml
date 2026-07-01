@@ -43,12 +43,23 @@ jobs:
           managed: false
           solution-output-file: out/${{ env.SOLUTION_NAME }}.zip
  
-      - name: Unpack solution into source folder
+      - name: Export solution (managed) from Dev
+        uses: microsoft/powerplatform-actions/export-solution@v1
+        with:
+          environment-url: ${{ secrets.PP_DEV_ENV_URL }}
+          app-id: ${{ secrets.PP_CLIENT_ID }}
+          client-secret: ${{ secrets.PP_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.PP_TENANT_ID }}
+          solution-name: ${{ env.SOLUTION_NAME }}
+          managed: true
+          solution-output-file: out/${{ env.SOLUTION_NAME }}_managed.zip
+ 
+      - name: Unpack solution (both) into source folder
         uses: microsoft/powerplatform-actions/unpack-solution@v1
         with:
           solution-file: out/${{ env.SOLUTION_NAME }}.zip
           solution-folder: src/${{ env.SOLUTION_NAME }}
-          solution-type: Unmanaged
+          solution-type: Both
           overwrite-files: true
  
       - name: Commit unpacked source to a new branch
