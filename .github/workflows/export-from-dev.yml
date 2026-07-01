@@ -1,0 +1,67 @@
+name: Export solution from Dev
+ 
+on:
+  workflow_dispatch:
+    inputs:
+      solution_name:
+        description: "Unique (internal) name of the solution in Power Platform"
+        required: true
+        default: NorthwindFieldAssistant
+ 
+permissions:
+  contents: write
+ 
+jobs:
+  export-and-unpack:
+    runs-on: windows-latest
+    env:
+      SOLUTION_NAME: ${{ github.event.inputs.solution_name }}
+      EXPORT_BRANCH: export/${{ github.event.inputs.solution_name }}-${{ github.run_number }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+ 
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1
+ 
+      - name: Confirm connection to Dev (Who Am I)
+        uses: microsoft/powerplatform-actions/who-am-i@v1
+        with:
+          environment-url: ${{ secrets.PP_DEV_ENV_URL }}
+          app-id: ${{ secrets.PP_CLIENT_ID }}
+          client-secret: ${{ secrets.PP_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.PP_TENANT_ID }}
+ 
+      - name: Export solution (unmanaged) from Dev
+        uses: microsoft/powerplatform-actions/export-solution@v1
+        with:
+          environment-url: ${{ secrets.PP_DEV_ENV_URL }}
+          app-id: ${{ secrets.PP_CLIENT_ID }}
+          client-secret: ${{ secrets.PP_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.PP_TENANT_ID }}
+          solution-name: ${{ env.SOLUTION_NAME }}
+          managed: false
+          solution-output-file: out/${{ env.SOLUTION_NAME }}.zip
+ 
+      - name: Unpack solution into source folder
+        uses: microsoft/powerplatform-actions/unpack-solution@v1
+        with:
+          solution-file: out/${{ env.SOLUTION_NAME }}.zip
+          solution-folder: src/${{ env.SOLUTION_NAME }}
+          solution-type: Unmanaged
+          overwrite-files: true
+ 
+      - name: Commit unpacked source to a new branch
+        shell: pwsh
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git checkout -b $env:EXPORT_BRANCH
+          git add src
+          if (git status --porcelain) {
+            git commit -m "Export $env:SOLUTION_NAME from Dev (run $env:GITHUB_RUN_NUMBER)"
+            git push origin $env:EXPORT_BRANCH
+            echo "Pushed branch $env:EXPORT_BRANCH"
+          } else {
+            echo "No changes to commit."
+          }
