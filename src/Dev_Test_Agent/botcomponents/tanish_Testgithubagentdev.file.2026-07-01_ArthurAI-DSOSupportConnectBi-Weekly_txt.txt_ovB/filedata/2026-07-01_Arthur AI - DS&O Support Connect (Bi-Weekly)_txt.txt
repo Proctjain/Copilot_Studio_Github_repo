@@ -1,0 +1,130 @@
+=== MEETING ATTENDEES ===
+Total Attendees: 6
+Meeting Start: 6/30/2026, 7:31:46 PM
+
+Attendee List:
+- Adyant Jha
+- Tripp Whaley
+- Debashis Satpathy
+- Tanish Jain
+- Unknown user
+- Govinde Gowda Vk
+
+=== TRANSCRIPT ===
+[7:31:46 PM] Adyant Jha: Are you an office strip?
+[7:31:47 PM] Tripp Whaley: I am.
+[7:31:50 PM] Tripp Whaley: Are you are you OK?
+[7:31:54 PM] Adyant Jha: I I am in a different I'm in prog DN office so.
+[7:31:55 PM] Tripp Whaley: Patrick.
+[7:31:59 PM] Adyant Jha: Yeah, I I recognize the hazy background is the same spot you were.
+[7:32:03 PM] Tripp Whaley: Actually, it's just another creature of habit.
+[7:32:05 PM] Tripp Whaley: I kind of just sit in the same seat every time.
+[7:32:12 PM] Adyant Jha: Good, good. Devashish is Vijay or Govind going to join this connect?
+[7:32:15 PM] Adyant Jha: Do do you happen to know?
+[7:32:17 PM] Adyant Jha: Sorry I didn't see.
+[7:32:18 PM] Debashis Satpathy: Vijay will not join.
+[7:32:18 PM] Debashis Satpathy: He is not doing well.
+[7:32:19 PM] Debashis Satpathy: Vijay is not doing well.
+[7:32:21 PM] Debashis Satpathy: He is not going to join.
+[7:32:24 PM] Adyant Jha: Oh, OK. OK, OK. OK, OK.
+[7:32:24 PM] Debashis Satpathy: Let me check with Govindia.
+[7:32:27 PM] Debashis Satpathy: Give me a couple of couple more minutes.
+[7:32:27 PM] Adyant Jha: No, no.
+[7:32:29 PM] Adyant Jha: Do we have?
+[7:32:43 PM] Tripp Whaley: Hey, if something or if something we don't need or you ask them actually need to not be too, but just let us know right.
+[7:32:45 PM] Tripp Whaley: For discussion to for us to hear back.
+[7:32:48 PM] Tripp Whaley: From us today.
+[7:32:51 PM] Tripp Whaley: So we will.
+[7:32:56 PM] Adyant Jha: Tanisha, are you speaking? Sorry.
+[7:32:59 PM] Tanish Jain: Hello. Am I audible now?
+[7:33:02 PM] Adyant Jha: Yes, you're audible, yes.
+[7:33:10 PM] Tanish Jain: We just wanted to check on the metadata enrichment for the MDE tables, which is the running list which we have shared the DSN.
+[7:33:11 PM] Adyant Jha: OK, OK. OK. Makes sense.
+[7:33:23 PM] Adyant Jha: Makes sense and I think major important important item is we had sent a business rule list debashish with Vijay and it has it is in a priority order.
+[7:33:27 PM] Adyant Jha: So we need some help in reviewing those business rules.
+[7:33:37 PM] Adyant Jha: So I'm just letting you know, since we are all and letting Tripp know, because we are all here in the connect, so and then. So we'll send a note for the same.
+[7:33:38 PM] Adyant Jha: We can go win this year.
+[7:33:39 PM] Adyant Jha: Hi govind.
+[7:33:42 PM] Unknown user: Hey. Hey. Hi, Tripp.
+[7:33:44 PM] Adyant Jha: How's it going?
+[7:33:44 PM] Tripp Whaley: Hey govind.
+[7:33:46 PM] Govinde Gowda Vk: Yeah, it's pretty busy, man.
+[7:33:52 PM] Govinde Gowda Vk: Dear, and do you see right when I joined 3 minutes late. It's something, you know the previous call.
+[7:33:54 PM] Govinde Gowda Vk: They don't want to leave me.
+[7:33:56 PM] Govinde Gowda Vk: Anyways, yeah.
+[7:33:57 PM] Adyant Jha: Actually, we did not want to pull you.
+[7:34:01 PM] Adyant Jha: Pull you. We had. We have.
+[7:34:03 PM] Adyant Jha: Vijay is not well. I heard so.
+[7:34:04 PM] Adyant Jha: We had.
+[7:34:04 PM] Govinde Gowda Vk: Yeah, yeah, yeah, yes.
+[7:34:16 PM] Adyant Jha: We had a few things for Vijay, so we can send a note to him. So he wanted to get some, get some business rules reviewed that we discussed in the last connect.
+[7:34:21 PM] Adyant Jha: And then there were some some pointers for for the metadata enrichment for running.
+[7:34:22 PM] Adyant Jha: List that the team had shared.
+[7:34:24 PM] Adyant Jha: So maybe.
+[7:34:27 PM] Govinde Gowda Vk: Yeah, that is almost done.
+[7:34:34 PM] Govinde Gowda Vk: See, but again, not every table will be updated with all the columns. OK, we're trying. I'm trying my best to put in whenever I get the time.
+[7:34:39 PM] Govinde Gowda Vk: But in a some columns are, you know, not really.
+[7:34:43 PM] Govinde Gowda Vk: You can get easily the metadata informations K.
+[7:34:48 PM] Govinde Gowda Vk: But most of the tables got updated. If you see some of the fields missing, that's something we have to see.
+[7:34:50 PM] Govinde Gowda Vk: You know what best we can have that in in those field names.
+[7:34:55 PM] Govinde Gowda Vk: But I don't think you really use those fields.
+[7:34:57 PM] Govinde Gowda Vk: But anyways, you know we have. We'll see.
+[7:35:11 PM] Govinde Gowda Vk: You know what information we can add in, but lows for the speciality pharmacy, you know we need couple of days because there's so many columns in that in the office and 80% of the fields it's already populated. But there are few fields which we are still saying.
+[7:35:16 PM] Govinde Gowda Vk: You know what best makes to put have an in a metadata descriptions.
+[7:35:17 PM] Govinde Gowda Vk: We are adding them OK.
+[7:35:19 PM] Govinde Gowda Vk: Otherwise, you know, most of the tables you could see you know it's available.
+[7:35:23 PM] Adyant Jha: OK. OK. OK.
+[7:35:28 PM] Govinde Gowda Vk: I I think I can quickly share my not something I can show you, OK.
+[7:35:32 PM] Govinde Gowda Vk: Let me quickly share that right to give an example. What it means what's happening there, right?
+[7:35:40 PM] Govinde Gowda Vk: So let me know when you can see my screen.
+[7:35:44 PM] Tripp Whaley: We can see it.
+[7:35:53 PM] Govinde Gowda Vk: I mean, these are not hold all of the fields, some of the missing. I'm updating it, OK and all these were missing we got updated.
+[7:35:54 PM] Govinde Gowda Vk: This is fine.
+[7:35:55 PM] Govinde Gowda Vk: This is completely fine.
+[7:35:56 PM] Govinde Gowda Vk: All this been updated.
+[7:35:57 PM] Govinde Gowda Vk: This is.
+[7:35:58 PM] Govinde Gowda Vk: I don't know who is who managing this.
+[7:35:59 PM] Govinde Gowda Vk: I have to find out.
+[7:36:01 PM] Govinde Gowda Vk: You know who is managing this table.
+[7:36:05 PM] Govinde Gowda Vk: These I updated few of them but not really.
+[7:36:10 PM] Govinde Gowda Vk: You know all of them. I need to get updated this own completely by ZS team, but whatever.
+[7:36:12 PM] Govinde Gowda Vk: I know I've just put in there but few of them I need to still update.
+[7:36:12 PM] Adyant Jha: OK. All right.
+[7:36:15 PM] Govinde Gowda Vk: Goal separated this.
+[7:36:16 PM] Govinde Gowda Vk: I will look into it.
+[7:36:26 PM] Govinde Gowda Vk: So these are the one which you know while we updated some of the fields right maximum we have updated it. You know there are some little bit missing here and there right.
+[7:36:33 PM] Govinde Gowda Vk: You know all these. So we'll take couple of days to review and you know see what we can put as a third part of the descriptions. OK.
+[7:36:35 PM] Adyant Jha: OK, OK.
+[7:36:38 PM] Govinde Gowda Vk: And this is been done and this is been done.
+[7:36:43 PM] Govinde Gowda Vk: The specialty pharmacy is one which you know which you're working through, OK.
+[7:36:44 PM] Adyant Jha: OK, OK.
+[7:36:58 PM] Adyant Jha: So, Govind, I think what we will do is like we have shared a priority order of business rules with Vijay. We will also because we are not working, we will not. I'm sure we are not working on 100% of the tables at at at first right so.
+[7:37:00 PM] Govinde Gowda Vk: Yes. Yeah.
+[7:37:10 PM] Adyant Jha: We will send you a list of tables that we are like. We have sent you a running list, but we'll we'll set a priority bucket to that list and then send it to you so that you can also prioritize at your end.
+[7:37:11 PM] Adyant Jha: I understand this is not the only thing I'm working on so.
+[7:37:16 PM] Adyant Jha: We will try to make your life a little easier so.
+[7:37:18 PM] Adyant Jha: OK.
+[7:37:24 PM] Adyant Jha: Thank you so much for all the help though.
+[7:37:25 PM] Govinde Gowda Vk: Hey, no problem, no problem.
+[7:37:34 PM] Govinde Gowda Vk: So it is that likely you know, we had to understand the data. And then again like I said, you know, since I know the data some, I'm just trying to put all those in here, but it takes it's all sweet time in order to put a right word.
+[7:37:35 PM] Govinde Gowda Vk: In there, yeah.
+[7:37:39 PM] Adyant Jha: Yes, yes. Yep, definitely.
+[7:37:39 PM] Adyant Jha: And OK.
+[7:37:41 PM] Adyant Jha: No, thank you so much Govind.
+[7:37:46 PM] Adyant Jha: We will do that so that we can keep things moving and we'll connect later.
+[7:37:47 PM] Adyant Jha: I'll not hold you for long.
+[7:37:48 PM] Adyant Jha: We had some pointers for Vijay.
+[7:37:51 PM] Adyant Jha: We can send a note.
+[7:37:51 PM] Adyant Jha: That's that's fine.
+[7:37:55 PM] Adyant Jha: I hope he feels better soon, and then we we can connect later, OK?
+[7:37:57 PM] Govinde Gowda Vk: Perfect. Perfect, perfect.
+[7:37:58 PM] Adyant Jha: OK.
+[7:38:06 PM] Adyant Jha: Thank you, debashish. Anything that you wanted to our team, anything else that we wanted to cover?
+[7:38:10 PM] Debashis Satpathy: No, I'm good adyant.
+[7:38:10 PM] Adyant Jha: OK.
+[7:38:12 PM] Adyant Jha: Thank you.
+[7:38:14 PM] Govinde Gowda Vk: Hey, thanks Arun. Thank you.
+[7:38:15 PM] Debashis Satpathy: Thanks everyone.
+[7:38:15 PM] Govinde Gowda Vk: You too.
+[7:38:16 PM] Debashis Satpathy: Bye bye.
+[7:38:16 PM] Govinde Gowda Vk: Bye bye.
