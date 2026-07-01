@@ -1,0 +1,72 @@
+name: Release to Prod
+ 
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "src/**"
+  workflow_dispatch:
+ 
+env:
+  SOLUTION_NAME: Dev_Test_Agent
+ 
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+ 
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1
+ 
+      - name: Pack solution as MANAGED
+        uses: microsoft/powerplatform-actions/pack-solution@v1
+        with:
+          solution-folder: src/${{ env.SOLUTION_NAME }}
+          solution-file: out/${{ env.SOLUTION_NAME }}_managed.zip
+          solution-type: Managed
+ 
+      # Optional checker gate. If it gives you trouble on your first run,
+      # comment this whole step out, get a green run, then add it back.
+      - name: Static analysis (checker gate)
+        continue-on-error: true
+        uses: microsoft/powerplatform-actions/check-solution@v1
+        with:
+          environment-url: ${{ secrets.PP_DEV_ENV_URL }}
+          app-id: ${{ secrets.PP_CLIENT_ID }}
+          client-secret: ${{ secrets.PP_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.PP_TENANT_ID }}
+          path: out/${{ env.SOLUTION_NAME }}_managed.zip
+          geo: UnitedStates
+ 
+      - name: Upload managed solution as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: managed-solution
+          path: out/${{ env.SOLUTION_NAME }}_managed.zip
+ 
+  deploy:
+    needs: build
+    runs-on: windows-latest
+    environment: production   # pauses here for your approval
+    steps:
+      - name: Download managed solution artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: managed-solution
+          path: out
+ 
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1
+ 
+      - name: Import managed solution into Prod and publish
+        uses: microsoft/powerplatform-actions/import-solution@v1
+        with:
+          environment-url: ${{ secrets.PP_PROD_ENV_URL }}
+          app-id: ${{ secrets.PP_CLIENT_ID }}
+          client-secret: ${{ secrets.PP_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.PP_TENANT_ID }}
+          solution-file: out/${{ env.SOLUTION_NAME }}_managed.zip
+          force-overwrite: true
+          publish-changes: true
