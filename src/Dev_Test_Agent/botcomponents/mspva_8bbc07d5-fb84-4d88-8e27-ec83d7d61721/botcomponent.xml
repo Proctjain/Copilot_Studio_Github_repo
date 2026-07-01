@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_8bbc07d5-fb84-4d88-8e27-ec83d7d61721">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>Is there a way to boost the conversation with more detailed answers?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Is there a way to boost the conversation with more detailed answers?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_96f8c544-3b81-4b68-99ce-3d017fa24adb</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>tanish_Testgithubagentdev</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_9f40f33c-10ab-490b-9c5b-9c87dd759cc0">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>I want to escalate this issue to a human representative.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>I want to escalate this issue to a human representative.</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_96f8c544-3b81-4b68-99ce-3d017fa24adb</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>tanish_Testgithubagentdev</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
