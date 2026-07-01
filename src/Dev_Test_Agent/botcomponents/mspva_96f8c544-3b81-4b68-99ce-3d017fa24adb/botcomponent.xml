@@ -1,0 +1,12 @@
+<botcomponent schemaname="mspva_96f8c544-3b81-4b68-99ce-3d017fa24adb">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>Evaluate Test_github_agent_dev</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Evaluate Test_github_agent_dev</name>
+  <parentbotid>
+    <schemaname>tanish_Testgithubagentdev</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
