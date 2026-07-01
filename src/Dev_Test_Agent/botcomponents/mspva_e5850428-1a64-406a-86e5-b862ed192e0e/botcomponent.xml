@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_e5850428-1a64-406a-86e5-b862ed192e0e">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>Can you assist me with troubleshooting an issue related to GitHub?</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Can you assist me with troubleshooting an issue related to GitHub?</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_96f8c544-3b81-4b68-99ce-3d017fa24adb</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>tanish_Testgithubagentdev</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
