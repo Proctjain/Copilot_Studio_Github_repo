@@ -6,7 +6,7 @@ on:
       solution_name:
         description: "Unique (internal) name of the solution in Power Platform"
         required: true
-        default: NorthwindFieldAssistant
+        default: Dev_Test_Agent
  
 permissions:
   contents: write
