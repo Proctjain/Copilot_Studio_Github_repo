@@ -1,7 +1,0 @@
-kind: EvaluationData
-rows:
-  - source: Manual
-    input: How can I start over with this conversation?
-
-extensionData:
-  displayOrder: "1782913010148"

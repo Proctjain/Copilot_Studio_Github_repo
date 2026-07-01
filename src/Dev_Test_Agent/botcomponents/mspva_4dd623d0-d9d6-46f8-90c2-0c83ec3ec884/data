@@ -1,7 +1,0 @@
-kind: EvaluationData
-rows:
-  - source: Manual
-    input: Can you help me find information from a specific GitHub repository?
-
-extensionData:
-  displayOrder: "1782913010162"
