@@ -1,0 +1,17 @@
+kind: AdaptiveDialog
+modelDescription: |-
+  NBRx,
+  TRx, 
+  What is NRx
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent: {}
+  actions:
+    - kind: SendActivity
+      id: sendActivity_i9MeDt
+      activity: |
+        What exactly about it?
+
+inputType: {}
+outputType: {}
