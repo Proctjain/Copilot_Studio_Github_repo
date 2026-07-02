@@ -1,29 +1,45 @@
+# ===================================================================
+# EXPORT FROM DEV
+# Purpose: pull the current agent (as a solution) out of the Dev
+# environment, turn it into readable source files, and push a branch
+# so you can review the change as a PR before it goes anywhere.
+# Trigger: MANUAL ONLY. You run this yourself after publishing edits
+# in Copilot Studio. It never fires on its own.
+# ===================================================================
 name: Export solution from Dev
- 
+
 on:
-  workflow_dispatch:
+  workflow_dispatch:              # manual run from the Actions tab
     inputs:
-      solution_name:
+      solution_name:              # shows a form field before the run
         description: "Unique (internal) name of the solution in Power Platform"
         required: true
-        default: Dev_Test_Agent
- 
+        default: Dev_Test_Agent   # <-- must match your solution's internal Name
+
 permissions:
-  contents: write
- 
+  contents: write                 # needed so the job can PUSH the new branch
+                                  # (the default token is read-only)
+
 jobs:
   export-and-unpack:
-    runs-on: windows-latest
+    runs-on: windows-latest       # Windows = most reliable for pac CLI + checker
     env:
+      # Reused across steps so you only set the name in one place.
       SOLUTION_NAME: ${{ github.event.inputs.solution_name }}
+      # A unique branch name per run, e.g. export/Dev_Test_Agent-7
       EXPORT_BRANCH: export/${{ github.event.inputs.solution_name }}-${{ github.run_number }}
+
     steps:
+      # Get the repo onto the runner so we can commit into it later.
       - name: Checkout repo
         uses: actions/checkout@v4
- 
+
+      # Install the Power Platform CLI (pac) that every step below uses.
       - name: Install Power Platform Tools
         uses: microsoft/powerplatform-actions/actions-install@v1
- 
+
+      # Sanity check: proves the service principal + secrets can log in
+      # to Dev. If auth is broken, this fails fast with a clear message.
       - name: Confirm connection to Dev (Who Am I)
         uses: microsoft/powerplatform-actions/who-am-i@v1
         with:
@@ -31,7 +47,8 @@ jobs:
           app-id: ${{ secrets.PP_CLIENT_ID }}
           client-secret: ${{ secrets.PP_CLIENT_SECRET }}
           tenant-id: ${{ secrets.PP_TENANT_ID }}
- 
+
+      # Export the UNMANAGED copy (the editable source form) from Dev.
       - name: Export solution (unmanaged) from Dev
         uses: microsoft/powerplatform-actions/export-solution@v1
         with:
@@ -40,9 +57,12 @@ jobs:
           client-secret: ${{ secrets.PP_CLIENT_SECRET }}
           tenant-id: ${{ secrets.PP_TENANT_ID }}
           solution-name: ${{ env.SOLUTION_NAME }}
-          managed: false
+          managed: false          # unmanaged
           solution-output-file: out/${{ env.SOLUTION_NAME }}.zip
- 
+
+      # Export the MANAGED copy too. This is what makes a managed pack
+      # possible later. Note the "_managed" suffix in the filename --
+      # the unpack step below pairs the two zips by that convention.
       - name: Export solution (managed) from Dev
         uses: microsoft/powerplatform-actions/export-solution@v1
         with:
@@ -51,9 +71,22 @@ jobs:
           client-secret: ${{ secrets.PP_CLIENT_SECRET }}
           tenant-id: ${{ secrets.PP_TENANT_ID }}
           solution-name: ${{ env.SOLUTION_NAME }}
-          managed: true
+          managed: true           # managed
           solution-output-file: out/${{ env.SOLUTION_NAME }}_managed.zip
- 
+
+      # Delete the previous unpacked folder so that components removed
+      # in Dev (e.g. a deleted knowledge file) don't linger in Git and
+      # break the next pack. Fresh unpack every time.
+      - name: Clean previous unpacked source
+        shell: pwsh
+        run: |
+          if (Test-Path "src/${{ env.SOLUTION_NAME }}") {
+            Remove-Item -Recurse -Force "src/${{ env.SOLUTION_NAME }}"
+          }
+
+      # Decompose the zip(s) into readable files under src/.
+      # solution-type: Both = unpack unmanaged AND managed metadata,
+      # so the source can later be packed as managed.
       - name: Unpack solution (both) into source folder
         uses: microsoft/powerplatform-actions/unpack-solution@v1
         with:
@@ -61,15 +94,17 @@ jobs:
           solution-folder: src/${{ env.SOLUTION_NAME }}
           solution-type: Both
           overwrite-files: true
- 
+
+      # Commit the unpacked source to a NEW branch and push it.
+      # You then open the PR yourself to review the diff.
       - name: Commit unpacked source to a new branch
         shell: pwsh
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git checkout -b $env:EXPORT_BRANCH
-          git add src
-          if (git status --porcelain) {
+          git add -A src                       # -A also stages DELETIONS
+          if (git status --porcelain) {        # only commit if something changed
             git commit -m "Export $env:SOLUTION_NAME from Dev (run $env:GITHUB_RUN_NUMBER)"
             git push origin $env:EXPORT_BRANCH
             echo "Pushed branch $env:EXPORT_BRANCH"
