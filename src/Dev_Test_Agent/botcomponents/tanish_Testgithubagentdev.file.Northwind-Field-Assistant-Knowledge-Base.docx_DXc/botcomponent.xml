@@ -1,0 +1,12 @@
+<botcomponent schemaname="tanish_Testgithubagentdev.file.Northwind-Field-Assistant-Knowledge-Base.docx_DXc">
+  <componenttype>14</componenttype>
+  <description>This knowledge source searches information contained in Northwind-Field-Assistant-Knowledge-Base.docx</description>
+  <filedata mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document">Northwind-Field-Assistant-Knowledge-Base.docx</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>Northwind-Field-Assistant-Knowledge-Base.docx</name>
+  <parentbotid>
+    <schemaname>tanish_Testgithubagentdev</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
