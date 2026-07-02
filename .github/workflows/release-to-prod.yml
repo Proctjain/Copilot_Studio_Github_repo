@@ -1,34 +1,47 @@
+# ===================================================================
+# RELEASE TO PROD
+# Purpose: take the source that was merged into main, pack it as a
+# MANAGED solution, run the checker, WAIT FOR YOUR APPROVAL, then
+# import into Prod and publish.
+# Trigger: AUTOMATIC. Fires when anything under src/ is merged to main
+# (i.e. right after you merge the export PR). Also runnable by hand.
+# ===================================================================
 name: Release to Prod
- 
+
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]            # runs after a PR merges to main
     paths:
-      - "src/**"
-  workflow_dispatch:
- 
+      - "src/**"                  # ...only if solution source actually changed
+  workflow_dispatch:              # lets you also trigger it manually
+
 env:
-  SOLUTION_NAME: Dev_Test_Agent
- 
+  SOLUTION_NAME: Dev_Test_Agent   # <-- must match your solution's internal Name
+
 jobs:
+  # ---------- JOB 1: build the managed package ----------
   build:
     runs-on: windows-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
- 
+
       - name: Install Power Platform Tools
         uses: microsoft/powerplatform-actions/actions-install@v1
- 
+
+      # Pack the source in src/ into a MANAGED zip.
+      # Works because the export unpacked "Both", so managed
+      # metadata is present in the source.
       - name: Pack solution as MANAGED
         uses: microsoft/powerplatform-actions/pack-solution@v1
         with:
           solution-folder: src/${{ env.SOLUTION_NAME }}
           solution-file: out/${{ env.SOLUTION_NAME }}_managed.zip
           solution-type: Managed
- 
-      # Optional checker gate. If it gives you trouble on your first run,
-      # comment this whole step out, get a green run, then add it back.
+
+      # Static analysis gate. continue-on-error: true means warnings
+      # won't block the release. Comment this whole step out if it
+      # ever gives you trouble on a first run.
       - name: Static analysis (checker gate)
         continue-on-error: true
         uses: microsoft/powerplatform-actions/check-solution@v1
@@ -39,27 +52,37 @@ jobs:
           tenant-id: ${{ secrets.PP_TENANT_ID }}
           path: out/${{ env.SOLUTION_NAME }}_managed.zip
           geo: UnitedStates
- 
+
+      # The deploy job runs on a FRESH runner and can't see this job's
+      # files, so we hand the zip over as an artifact.
       - name: Upload managed solution as artifact
         uses: actions/upload-artifact@v4
         with:
           name: managed-solution
           path: out/${{ env.SOLUTION_NAME }}_managed.zip
- 
+
+  # ---------- JOB 2: deploy to Prod (gated) ----------
   deploy:
-    needs: build
+    needs: build                  # waits for the build job to finish
     runs-on: windows-latest
-    environment: production   # pauses here for your approval
+    environment: production       # THIS is the approval gate: because the
+                                  # GitHub Environment "production" has a
+                                  # required reviewer, this job pauses here
+                                  # until you click Approve.
     steps:
+      # Pull the zip that job 1 uploaded.
       - name: Download managed solution artifact
         uses: actions/download-artifact@v4
         with:
           name: managed-solution
           path: out
- 
+
       - name: Install Power Platform Tools
         uses: microsoft/powerplatform-actions/actions-install@v1
- 
+
+      # Import the managed solution into Prod and publish it.
+      # force-overwrite: replace the existing solution instead of erroring.
+      # publish-changes: make the agent actually live, not imported-but-dormant.
       - name: Import managed solution into Prod and publish
         uses: microsoft/powerplatform-actions/import-solution@v1
         with:
